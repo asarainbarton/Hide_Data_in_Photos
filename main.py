@@ -9,7 +9,7 @@ if __name__ == "__main__":
     # If the path leads to a folder, add an extra '/' at the end of the path if you only want to hide 
     # the contents of all data located inside of the folder. 
     # Otherwise, the program will hide the folder itself as well, containing all the contents.
-    path_to_data_you_want_hidden = ""
+    path_to_data_you_want_hidden = script_directory + '/Input_Photos/cattt.png'
 
     path_to_input_photos = script_directory + '/Input_Photos'
     path_to_processed_photos = script_directory + '/Processed_Photos'
