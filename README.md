@@ -59,7 +59,7 @@ notice any bugs, report them to anyissuereports@gmail.com
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ## Author
 
