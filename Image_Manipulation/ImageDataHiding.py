@@ -231,10 +231,13 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
         
         rgb = list(image.getpixel((w, h)))
 
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        bVal[7] = bit_ID_length[j]
+        # If true, then the current lsb pixel value needs to be changed
+        if rgb[i%3] % 2 != bit_ID_length[j]:
+            if bit_ID_length[j] == 0:
+                rgb[i%3] -= 1
+            else:
+                rgb[i%3] += 1
 
-        rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
         image.putpixel((w, h), tuple(rgb))
 
         i += 1
@@ -255,10 +258,12 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
         
         rgb = list(image.getpixel((w, h)))
         
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        bVal[7] = photo_ID[j]
+        if rgb[i%3] % 2 != photo_ID[j]:
+            if photo_ID[j] == 0:
+                rgb[i%3] -= 1
+            else:
+                rgb[i%3] += 1
         
-        rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
         image.putpixel((w, h), tuple(rgb))
 
         i += 1
@@ -280,11 +285,13 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
                     sys.exit(1)
 
             rgb = list(image.getpixel((w, h)))
+
+            if rgb[i%3] % 2 != bit_total_bits_length[j]:
+                if bit_total_bits_length[j] == 0:
+                    rgb[i%3] -= 1
+                else:
+                    rgb[i%3] += 1
             
-            bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-            bVal[7] = bit_total_bits_length[j]
-            
-            rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
             image.putpixel((w, h), tuple(rgb))
             
             i += 1
@@ -303,11 +310,13 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
                     sys.exit(1)
             
             rgb = list(image.getpixel((w, h)))
-            
-            bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-            bVal[7] = total_bits[j]
 
-            rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
+            if rgb[i%3] % 2 != total_bits[j]:
+                if total_bits[j] == 0:
+                    rgb[i%3] -= 1
+                else:
+                    rgb[i%3] += 1
+
             image.putpixel((w, h), tuple(rgb))
 
             i += 1
@@ -326,11 +335,13 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
             return i + val
         
         rgb = list(image.getpixel((w, h)))
+
+        if rgb[i%3] % 2 != bits[i + val]:
+            if bits[i + val] == 0:
+                rgb[i%3] -= 1
+            else:
+                rgb[i%3] += 1
         
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        bVal[7] = bits[i + val]
-        
-        rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
         image.putpixel((w, h), tuple(rgb))
         
         i += 1
@@ -346,10 +357,12 @@ def hideDataInPhoto(bits, current_index, photo, photo_ID, total_bits, first_imag
 
                 rgb = list(image.getpixel((w, h)))
 
-                bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-                bVal[7] = bits[i + val]
-                rgb[i%3] = DecimalBitConverters.convertBitsToDecimal(bVal)
-                
+                if rgb[i%3] % 2 != bits[i + val]:
+                    if bits[i + val] == 0:
+                        rgb[i%3] -= 1
+                    else:
+                        rgb[i%3] += 1
+        
                 image.putpixel((w, h), tuple(rgb))
                 
                 i += 1

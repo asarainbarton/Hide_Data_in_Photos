@@ -110,9 +110,7 @@ def getTotalBitsNumDataSize(image_path, precursor_bit_length):
                 sys.exit(1)
         
         rgb = image.getpixel((w, h))
-
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        b_total_size_length.append(bVal[7])
+        b_total_size_length.append(rgb[i%3] % 2)
 
         i += 1
     
@@ -133,9 +131,7 @@ def getTotalBitsNumDataSize(image_path, precursor_bit_length):
                 sys.exit(1)
         
         rgb = image.getpixel((w, h))
-
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        b_bit_data_size.append(bVal[7])
+        b_bit_data_size.append(rgb[i%3] % 2)
 
         i += 1
     
@@ -225,9 +221,7 @@ def extractDataFromImage(image_path, current_num_bits_extracted, total_bit_data_
     # with a fresh new pixel.
     while i % 3 != 0:
         rgb = image.getpixel((w, h))
-
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        bits.append(bVal[7])
+        bits.append(rgb[i%3] % 2)
         
         i += 1
         current_num_bits_extracted += 1
@@ -243,9 +237,7 @@ def extractDataFromImage(image_path, current_num_bits_extracted, total_bit_data_
         for w in range(w, width):
             for j in range(3):
                 rgb = image.getpixel((w, h))
-
-                bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-                bits.append(bVal[7])
+                bits.append(rgb[i%3] % 2)
                 
                 i += 1
                 current_num_bits_extracted += 1
@@ -294,9 +286,7 @@ def getImageNum(photo_path):
                 sys.exit(1)
         
         rgb = image.getpixel((w, h))
-
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        b_ID_length.append(bVal[7])
+        b_ID_length.append(rgb[i%3] % 2)
 
         i += 1
     
@@ -320,9 +310,7 @@ def getImageNum(photo_path):
                 sys.exit(1)
         
         rgb = image.getpixel((w, h))
-
-        bVal = DecimalBitConverters.convertDecimalToBits(rgb[i%3], 8)
-        b_photo_num.append(bVal[7])
+        b_photo_num.append(rgb[i%3] % 2)
 
         i += 1
     
