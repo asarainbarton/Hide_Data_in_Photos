@@ -185,8 +185,15 @@ def createPhotoDictionary(processed_photos):
     """
     photo_dict = {}
 
+    Miscellaneous_Helpers.removePotentialHiddenFiles(processed_photos)
+
     # Fill the dictionary with the photos and their corresponding identifier numbers
     for photo in os.listdir(processed_photos):
+        # Check to make sure only compatible image types being processed
+        if not photo.lower().endswith('.png'):
+            print("Error - Only png images are allowed for extraction.")
+            sys.exit(1)
+
         photo_path = os.path.join(processed_photos, photo)
         current_num = getImageNum(photo_path)
 

@@ -173,7 +173,7 @@ def getMaxDataThatCanBeHidden(path_to_input_photos, total_bits):
         sys.exit(1)
     
     # Sometimes unwanted hidden files may appear, which we do not want
-    removePotentialHiddenFiles(path_to_input_photos)
+    Miscellaneous_Helpers.removePotentialHiddenFiles(path_to_input_photos)
 
     max_allowed_bits = 0
     num_photos_in_directory = len(os.listdir(path_to_input_photos))
@@ -206,24 +206,6 @@ def getMaxDataThatCanBeHidden(path_to_input_photos, total_bits):
         max_allowed_bits += num
 
     return max_allowed_bits
-
-
-def removePotentialHiddenFiles(folder_path):
-    """
-    Checks to see if there are any hidden files, whose names start with '.', and if so, removes them.
-    :param folder_path: The path to the folder that will be checked for any potential hidden files.
-    """
-    try:
-        folder_contents = os.listdir(folder_path)
-        
-        for item in folder_contents:
-            item_path = os.path.join(folder_path, item)
-            
-            # Check if the item is a hidden file (starts with a dot)
-            if item.startswith('.'):
-                os.remove(item_path)
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
 
 
 def storeDataInPixels(data, w, h, i, image):

@@ -25,3 +25,20 @@ def removePreviouslyExtractedData(extracted_data_path):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         sys.exit(1)
+
+def removePotentialHiddenFiles(folder_path):
+    """
+    Checks to see if there are any hidden files, whose names start with '.', and if so, removes them.
+    :param folder_path: The path to the folder that will be checked for any potential hidden files.
+    """
+    try:
+        folder_contents = os.listdir(folder_path)
+        
+        for item in folder_contents:
+            item_path = os.path.join(folder_path, item)
+            
+            # Check if the item is a hidden file (starts with a dot)
+            if item.startswith('.') and not item.lower().endswith('.png'):
+                os.remove(item_path)
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
