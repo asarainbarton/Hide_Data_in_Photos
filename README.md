@@ -15,10 +15,12 @@ requirements.txt (You can use the command "pip install -r requirements.txt")
 
 ## Usage
 
-After installing all required components, modify the main.py file to include the path to the file or
-folder that you wish to hide (under variable name 'path_to_data_you_want_hidden'). Next, add one or 
-multiple png images inside of the 'Input_Photos' folder. Depending on the size of the data you are
-trying to hide, you may need more than one photo to store all of the hidden data. 
+After installing all required components, paste whatever data you want hidden into the folder
+titled, 'Data_To_Hide'. This is by default. Otherwise, feel free to modify the main.py file to
+include the path to the file or folder that you wish to hide (under variable name 
+'path_to_data_you_want_hidden'). Next, add one or multiple png images inside of the 'Input_Photos'
+folder. Depending on the size of the data you are trying to hide, you may need more than one photo
+to store all of the hidden data. 
 
 To run the program, type in the command, 'python3 main.py' or 'python main.py' via terminal in the 
 project's root directory. 

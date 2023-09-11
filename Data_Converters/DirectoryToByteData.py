@@ -2,6 +2,11 @@ import os, sys
 
 
 def extractByteFileData(filePath):
+    """
+    Extracts the data from a given file and returns its contents in byte format.
+    :param filePath: The path to the file, whose contents will be extracted.
+    :return: The contents of the file in byte format.
+    """
     try:
         with open(filePath, 'rb') as file:
             data = file.read()
@@ -13,6 +18,13 @@ def extractByteFileData(filePath):
 
 
 def getByteData(path):
+    """
+    Recursively gets the byte data of an entire directory's contents, stored as a dictionary.
+    :param path: The path to the content(s) to be stored.
+    :return: The dictionary, containing all contents of the specified directory. The keys are the file/folder names.
+    If a file, the value is the contents of the file in byte format. If a folder, the value is another dictionary
+    used to represent the contents of that subpath.
+    """
     byte_data_list = {}
 
     # True if the path specified leads directly to a file
@@ -29,6 +41,11 @@ def getByteData(path):
 
 
 def getByteData_Implementation(folder_path):
+    """
+    Gets the byte data of the contents listed in the current given folder path, stored as a dictionary. (Part of getByteData)
+    :param folder_path: The path to the current folder for processing.
+    :return: The dictionary representation of all the contents inside the current folder.
+    """
     byte_data_list = {}
 
     for sub_dir_name in sorted(os.listdir(folder_path)):

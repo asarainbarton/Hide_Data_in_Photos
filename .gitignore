@@ -1,4 +1,6 @@
 __pycache__/
 .mypy_cache/
+.DS_Store/
+**/.DS_Store/
 **/__pycache__/
 **/.mypy_cache/

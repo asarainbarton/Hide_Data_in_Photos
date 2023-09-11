@@ -2,6 +2,12 @@ import sys
 
 
 def convertDecimalToBits(num, requiredLength):
+    """
+    Converts any natural number (including zero) to its binary representation.
+    :param num: The nonnegative integer to be converted into binary.
+    :param requiredLength: The required length, in bits, that the binary value should be.
+    :return: The number in binary format, represented as a bytearray.
+    """
     binary_string = bin(num)[2:]
     bits = bytearray(map(int, binary_string))
 
@@ -23,6 +29,11 @@ def convertDecimalToBits(num, requiredLength):
 
 
 def convertBitsToDecimal(bits):
+    """
+    Converts a nonnegative number represented in binary to its appropriate decimal value.
+    :param bits: The binary data, represented as a bytearray.
+    :return: The binary value in decimal (integer) format.
+    """
     bit_length = len(bits)
     num = 0
 
